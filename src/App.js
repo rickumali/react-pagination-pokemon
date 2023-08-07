@@ -26,7 +26,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    loadData(5, 1);
+    loadData(10, 1);
   }, []);
 
   return (
