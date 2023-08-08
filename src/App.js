@@ -49,8 +49,8 @@ export default function App() {
           );
         })}
         <Pagination>
-          <Pagination.Item>{11}</Pagination.Item>
-          <Pagination.Item active>{12}</Pagination.Item>
+          {<Pagination.First onClick={() => pageClick(active - 1)} />}
+          {<Pagination.Last onClick={() => pageClick(active + 1)} />}
         </Pagination>
       </div>
     </div>
