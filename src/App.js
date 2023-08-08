@@ -88,9 +88,8 @@ export default function App() {
           );
         })}
         <Pagination>
-          {<Pagination.First onClick={() => pageClick(active - 1)} />}
-          {PaginationComponent(next)}
-          {<Pagination.Last onClick={() => pageClick(active + 1)} />}
+          {<Pagination.Prev onClick={() => pageClick(active - 1)} />}
+          {<Pagination.Next onClick={() => pageClick(active + 1)} />}
         </Pagination>
       </div>
     </div>
