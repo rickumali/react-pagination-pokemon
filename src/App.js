@@ -78,7 +78,7 @@ export default function App() {
       >
         {data.map((d) => {
           return (
-            <Fragment>
+            <Fragment key={d.name}>
               <p>
                 {d.name} {d.url}
               </p>
