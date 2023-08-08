@@ -10,7 +10,7 @@ export default function App() {
   const [data, setData] = useState([]);
   const [count, setCount] = useState();
   const [active, setActive] = useState(1);
-  const [next, setNext] = useState(2);
+  const [next, setNext] = useState(1);
 
   const pageClick = async (pageNumber) => {
     pageNumber = pageNumber <= 0 ? 1 : pageNumber;
