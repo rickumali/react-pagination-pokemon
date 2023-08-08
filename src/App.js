@@ -9,6 +9,31 @@ export default function App() {
   const [backData, setBackData] = useState([]);
   const [data, setData] = useState([]);
   const [count, setCount] = useState();
+  const [active, setActive] = useState(1);
+  const [next, setNext] = useState(2);
+
+  const PaginationComponent = (next) => {
+    let numbers = [];
+    for (
+      let number = next;
+      number <= count / limit && number <= next + 8;
+      number++
+    ) {
+      console.log(number);
+      numbers.push(
+        <Pagination.Item
+          key={number}
+          active={number == active}
+          onClick={() => {
+            pageClick(number);
+          }}
+        >
+          {number}
+        </Pagination.Item>
+      );
+      return numbers;
+    }
+  };
 
   const loadData = (numberOfRecords, active) => {
     axios
@@ -42,14 +67,16 @@ export default function App() {
         {data.map((d) => {
           return (
             <Fragment>
-              <p>{d.name}</p>
-              <p>{d.url}</p>
+              <p>
+                {d.name} {d.url}
+              </p>
               <hr />
             </Fragment>
           );
         })}
         <Pagination>
           {<Pagination.First onClick={() => pageClick(active - 1)} />}
+          {PaginationComponent(next)}
           {<Pagination.Last onClick={() => pageClick(active + 1)} />}
         </Pagination>
       </div>
