@@ -1,6 +1,6 @@
 import "./styles.css";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Pagination } from "react-bootstrap";
 import axios from "axios";
 
@@ -30,13 +30,29 @@ export default function App() {
   }, []);
 
   return (
-    <div
-      style={{
-        padding: "30px",
-        backgroundColor: "#34495e",
-        color: "white",
-        marginBottom: "20px",
-      }}
-    ></div>
+    <div>
+      <div
+        style={{
+          padding: "30px",
+          backgroundColor: "#34495e",
+          color: "white",
+          marginBottom: "20px",
+        }}
+      >
+        {data.map((d) => {
+          return (
+            <Fragment>
+              <p>{d.name}</p>
+              <p>{d.url}</p>
+              <hr />
+            </Fragment>
+          );
+        })}
+        <Pagination>
+          <Pagination.Item>{11}</Pagination.Item>
+          <Pagination.Item active>{12}</Pagination.Item>
+        </Pagination>
+      </div>
+    </div>
   );
 }
