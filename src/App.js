@@ -32,7 +32,6 @@ export default function App() {
       number <= count / limit && number <= next + 8;
       number++
     ) {
-      console.log(number);
       numbers.push(
         <Pagination.Item
           key={number}
@@ -44,8 +43,8 @@ export default function App() {
           {number}
         </Pagination.Item>
       );
-      return numbers;
     }
+    return numbers;
   };
 
   const loadData = (numberOfRecords, active) => {
@@ -89,6 +88,7 @@ export default function App() {
         })}
         <Pagination>
           {<Pagination.Prev onClick={() => pageClick(active - 1)} />}
+          {PaginationComponent(next)}
           {<Pagination.Next onClick={() => pageClick(active + 1)} />}
         </Pagination>
       </div>
